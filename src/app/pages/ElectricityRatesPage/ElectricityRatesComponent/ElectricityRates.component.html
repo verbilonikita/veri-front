@@ -1,0 +1,17 @@
+<div class="electricity-page">
+  <form
+    (ngSubmit)="handleSubmit()"
+    [formGroup]="form"
+    class="electricity-page_form"
+  >
+    <app-typography size="md" [title]="formTitle" />
+    <app-input formControlName="textkwh" pattern="^[0-9]*$" />
+    <app-btn [title]="btnTitle" [loading]="loading" />
+  </form>
+
+  <div class="electricity-page_rates">
+    <app-typography *ngIf="showListTitle()" [title]="getMessageType()" />
+    <app-loading [loading]="loading" />
+    <app-planslist *ngIf="showList()" />
+  </div>
+</div>

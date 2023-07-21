@@ -1,0 +1,34 @@
+:host {
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 30px;
+}
+
+.calculateLink {
+  font-size: 1.5rem;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:visited {
+    color: black;
+  }
+
+  &:hover {
+    color: rgb(103, 103, 103);
+  }
+
+  &:active {
+    color: lightGray;
+  }
+}
+
+.btn-hub {
+  display: flex;
+  gap: 1rem;
+}
