@@ -1,6 +1,6 @@
 <h1 class="title">{{ title }}</h1>
 <div class="btn-hub">
   <ng-container *ngFor="let btnDesc of btns">
-    <a btnHover [routerLink]="btnDesc.link">{{ btnDesc.title }}</a>
+    <app-link [link]="btnDesc.link" [title]="btnDesc.title" />
   </ng-container>
 </div>

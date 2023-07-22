@@ -10,24 +10,6 @@
   font-size: 30px;
 }
 
-.link {
-  font-size: 1.5rem;
-  cursor: pointer;
-  text-decoration: none;
-
-  &:visited {
-    color: black;
-  }
-
-  &:hover {
-    color: rgb(103, 103, 103);
-  }
-
-  &:active {
-    color: rgba(211, 211, 211, 0.886);
-  }
-}
-
 .btn-hub {
   display: flex;
   gap: 1rem;
