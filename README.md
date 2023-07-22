@@ -6,6 +6,11 @@
   OR
 - npm run start
 
+### info
+
+Didn't want to overcomplicate test task, so kept it simple.
+to do: add .env file, separate .envs, make more common components etc.
+
 ### features
 
 1. used onPush change detection
