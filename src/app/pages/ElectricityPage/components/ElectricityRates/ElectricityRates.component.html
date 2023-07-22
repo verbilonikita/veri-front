@@ -2,9 +2,16 @@
   *ngIf="!(this.electricityRatesService.loading$ | async)"
   [title]="title$ | async"
 />
-<app-spinner [loading]="this.electricityRatesService.loading$ | async" />
-<ng-container *ngIf="!(this.electricityRatesService.loading$ | async)">
+<ng-container
+  *ngIf="
+    this.electricityRatesService.loading$ | async as loading;
+    else dataIsReady
+  "
+>
+  <app-spinner [loading]="loading" />
+</ng-container>
+<ng-template #dataIsReady>
   <ng-container *ngIf="this.electricityRatesService.plans$ | async as plans">
     <app-planslist [plans]="plans" />
   </ng-container>
-</ng-container>
+</ng-template>

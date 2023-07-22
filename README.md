@@ -9,7 +9,12 @@
 ### info
 
 Didn't want to overcomplicate test task, so kept it simple.
-to do: add .env file, separate .envs, make more common components etc.
+to do:
+
+- add .env file, separate .envs
+- make more common components etc.
+- more refactoring
+- tried to complete it ASAP, might have missed smth, so check for any typos etc.
 
 ### features
 
@@ -20,3 +25,4 @@ to do: add .env file, separate .envs, make more common components etc.
 5. custom pipe to display euro currency
 6. lazy loading module
 7. service to handle async requests + store data (state)
+8. docker uses nginx to run bundle

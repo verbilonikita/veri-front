@@ -11,8 +11,8 @@ const routes: Routes = [{ path: '', component: HomeComponent }];
   imports: [
     LinkComponent,
     TypographyComponent,
-    RouterModule.forChild(routes),
     LinkComponent,
+    RouterModule.forChild(routes),
   ],
   providers: [],
 })

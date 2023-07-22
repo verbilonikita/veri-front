@@ -6,7 +6,10 @@ enum links {
 // to move into ENV
 
 enum API {
-  URL = 'http://localhost:3000/electricity/calculate',
+  API_URL = 'http://localhost:3000',
+  ELECTRICITY_URL = '/electricity',
+  CALCULATE = '/calculate',
+  URL = API.API_URL + ELECTRICITY_URL + API.CALCULATE,
 }
 
 export { links, API };
