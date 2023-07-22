@@ -1,5 +1,16 @@
-import { Component, Input, forwardRef } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+  Component,
+  Inject,
+  Injector,
+  Input,
+  Self,
+  forwardRef,
+} from '@angular/core';
+import {
+  ControlValueAccessor,
+  NG_VALUE_ACCESSOR,
+  NgControl,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-input',
@@ -15,15 +26,18 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class TextInputComponent implements ControlValueAccessor {
   value!: string;
+  @Input() invalid: boolean = false;
   @Input() pattern: string = '';
+  @Input() invalidTitle: string = '';
 
   onChange: (event: Event) => void = (_) => {};
   onTouched: () => void = () => {};
-
   writeValue(value: string) {
     this.value = value || '';
   }
-
+  registerOnTouched(fn: any) {
+    this.onTouched = fn;
+  }
   registerOnChange(fn: any) {
     this.onChange = (event: Event) => {
       const typedValue = (event.target as HTMLInputElement).value;
@@ -37,9 +51,5 @@ export class TextInputComponent implements ControlValueAccessor {
         fn(updatedValue);
       }
     };
-  }
-
-  registerOnTouched(fn: any) {
-    this.onTouched = fn;
   }
 }

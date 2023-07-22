@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { IPlan } from '../../../ElectricityRates.types';
+import { IPlan } from '../../../../ElectricityPageDTO/ElectricityRates.types';
 import { openClose } from 'src/app/const/animations';
+import { PlanBtnsEnum, PlanTitlesEnum } from './Plan.const';
 
 @Component({
   selector: 'app-plan',
@@ -12,7 +13,8 @@ import { openClose } from 'src/app/const/animations';
 export class PlanComponent {
   @Input() plan?: IPlan;
   @Input() bestOption: boolean = false;
-
+  titles = PlanTitlesEnum;
+  btnTitles = PlanBtnsEnum;
   isOpen: boolean = false;
 
   toggleIsOpen() {

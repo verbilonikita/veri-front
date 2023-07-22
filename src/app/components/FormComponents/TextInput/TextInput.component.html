@@ -1,6 +1,10 @@
-<input
-  class="text-input"
-  type="text"
-  [(ngModel)]="value"
-  (input)="onChange($event)"
-/>
+<div class="custom-input">
+  <input
+    #inputElement
+    [ngClass]="['text-input', invalid ? 'text-input-invalid' : '']"
+    type="text"
+    [(ngModel)]="value"
+    (input)="onChange($event)"
+  />
+  <span *ngIf="invalid">{{ invalidTitle }}</span>
+</div>

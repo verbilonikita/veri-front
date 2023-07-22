@@ -4,9 +4,4 @@ enum TypographySizesEnum {
   lg = 'lg',
 }
 
-enum BtnTitlesEnum {
-  calculate = 'Calculate',
-  home = 'Home',
-}
-
-export { TypographySizesEnum, BtnTitlesEnum };
+export { TypographySizesEnum };

@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { BtnTitlesEnum } from 'src/app/const/common.const';
 import { links } from 'src/app/const/router.const';
-import { HeaderTitlesEnum } from './Header.const';
+import { HeaderBtnEnum, HeaderTitlesEnum } from './Header.const';
 
 @Component({
   selector: 'app-header',
@@ -11,9 +10,9 @@ import { HeaderTitlesEnum } from './Header.const';
 })
 export class HeaderComponent {
   linkCalculator: string = links.calculator;
-  linkCalculatorTitle = BtnTitlesEnum.calculate;
+
+  btns = HeaderBtnEnum;
 
   linkHome: string = links.home;
-  linkHomeTitle: string = BtnTitlesEnum.home;
   title = HeaderTitlesEnum.title;
 }

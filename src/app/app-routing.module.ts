@@ -6,8 +6,8 @@ const routes: Routes = [
   {
     path: 'calculator',
     loadChildren: () =>
-      import('./pages/ElectricityRatesPage/ElectricityRates.module').then(
-        (m) => m.ElectricityRatesModule
+      import('./pages/ElectricityPage/ElectricityPage.module').then(
+        (m) => m.ElectricityPageModule
       ),
   },
   {

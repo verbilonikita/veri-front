@@ -1,7 +1,6 @@
 <h1 class="title">{{ title }}</h1>
 <div class="btn-hub">
-  <a [routerLink]="linkCalculator" class="calculateLink">
-    {{ linkCalculatorTitle }}
-  </a>
-  <a [routerLink]="linkHome" class="calculateLink">{{ linkHomeTitle }}</a>
+  <ng-container *ngFor="let btnDesc of btns">
+    <a class="link" btnHover [routerLink]="btnDesc.link">{{ btnDesc.title }}</a>
+  </ng-container>
 </div>

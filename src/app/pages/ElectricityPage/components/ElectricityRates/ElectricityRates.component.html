@@ -1,0 +1,8 @@
+<div class="electricity-rates">
+  <app-typography *ngIf="showListTitle()" [title]="getMessageType()" />
+  <app-spinner [loading]="this.electricityRatesService.loading" />
+  <app-planslist
+    *ngIf="!this.electricityRatesService.loading"
+    [plans]="this.electricityRatesService.plans"
+  />
+</div>

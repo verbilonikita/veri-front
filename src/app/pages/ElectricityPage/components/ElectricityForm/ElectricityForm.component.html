@@ -1,0 +1,13 @@
+<form (ngSubmit)="handleSubmit()" [formGroup]="form" class="electricity-form">
+  <app-typography [title]="formTitle" />
+  <app-input
+    formControlName="textkwh"
+    pattern="^[0-9]*$"
+    [invalid]="inputInvalid('textkwh')"
+    invalidTitle="Please type a number."
+  />
+  <app-btn
+    [loading]="this.electricityRatesService.loading"
+    [disabled]="this.electricityRatesService.loading || form.invalid"
+  />
+</form>

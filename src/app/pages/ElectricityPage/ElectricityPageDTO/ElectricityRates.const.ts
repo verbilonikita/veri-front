@@ -1,10 +1,10 @@
 enum ElectricityRatesEnum {
-  formTitle = 'Calculate your KWH',
+  formTitle = 'Type your KWH usage:',
 }
 enum ElectricityRatesTitlesEnum {
-  ChooseRates = 'Please choose rates to see available plans',
+  ChooseRates = 'Please type your KWH usage to see available plans.',
   PickedPlans = "We've picked some plans for you!",
-  Error = 'Some error has happened...',
+  Error = 'Some error has happened, please try again.',
 }
 
 export { ElectricityRatesEnum, ElectricityRatesTitlesEnum };

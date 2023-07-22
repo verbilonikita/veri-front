@@ -1,0 +1,8 @@
+<ng-container *ngIf="this.plans">
+  <div class="electricity-rates-panel">
+    <ng-container *ngFor="let plan of plans; let i = index">
+      <app-plan [bestOption]="i === 0" [plan]="plan" />
+      <app-divider [isLast]="i >= plans.length" />
+    </ng-container>
+  </div>
+</ng-container>

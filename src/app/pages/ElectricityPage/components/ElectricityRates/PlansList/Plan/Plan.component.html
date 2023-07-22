@@ -1,7 +1,7 @@
 <div [ngClass]="bestOption ? 'list-item-favourite list-item' : 'list-item'">
   <div *ngIf="bestOption" class="list-item_top">
     <mat-icon class="list-item_top-icon">stars</mat-icon>
-    <p class="list-item_top-title">Best option for you!</p>
+    <p class="list-item_top-title">{{ titles.title }}</p>
   </div>
 
   <div class="list-item_bot">
@@ -10,10 +10,12 @@
       <span> {{ plan?.cost }}€ </span>
     </div>
 
-    <button (click)="toggleIsOpen()" class="list-item_bot-btn">Purchase</button>
+    <button (click)="toggleIsOpen()" class="list-item_bot-btn">
+      {{ btnTitles.btnTitle }}
+    </button>
   </div>
 
   <div [@openClose]="isOpen ? 'open' : 'closed'">
-    <p>Some info about the product.</p>
+    <p>{{ titles.someInfo }}</p>
   </div>
 </div>

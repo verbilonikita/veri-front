@@ -2,4 +2,15 @@ enum HeaderTitlesEnum {
   title = 'Calculate your energy price today!',
 }
 
-export { HeaderTitlesEnum };
+const HeaderBtnEnum = [
+  {
+    title: 'Calculator',
+    link: '/calculator',
+  },
+  {
+    title: 'Home',
+    link: '/',
+  },
+];
+
+export { HeaderTitlesEnum, HeaderBtnEnum };
