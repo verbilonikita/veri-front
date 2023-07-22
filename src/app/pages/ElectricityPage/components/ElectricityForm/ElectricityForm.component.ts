@@ -1,27 +1,26 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { ElectricityRatesService } from '../../ElectricityPageService/ElectricityRates.service';
-import { ElectricityRatesEnum } from '../../ElectricityPageDTO/ElectricityRates.const';
+import { ElectricityRatesService } from '../../services/ElectricityPage.service';
+import { ElectricityRatesEnum } from '../../dto/ElectricityRates.const';
 
 @Component({
   selector: 'app-ElectricityForm',
   templateUrl: './ElectricityForm.component.html',
   styleUrls: ['./ElectricityForm.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ElectricityFormComponent implements OnInit {
   form!: FormGroup;
-  error: string = '';
   formTitle = ElectricityRatesEnum.formTitle;
 
   constructor(
     private fb: FormBuilder,
-    public electricityRatesService: ElectricityRatesService,
-    private changeDetector: ChangeDetectorRef
+    public electricityRatesService: ElectricityRatesService
   ) {}
 
   ngOnInit() {
@@ -38,17 +37,10 @@ export class ElectricityFormComponent implements OnInit {
     return !!item.errors && item.dirty;
   }
 
-  async handleSubmit() {
+  handleSubmit() {
     if (this.form.valid) {
-      try {
-        this.error = '';
-        const kwhValue = this.form.value.textkwh;
-        await this.electricityRatesService.getRates(kwhValue);
-      } catch (err: any) {
-        this.error = err.message;
-      } finally {
-        this.changeDetector.markForCheck();
-      }
+      const kwhValue = this.form.value.textkwh;
+      this.electricityRatesService.fetchData(kwhValue);
     }
   }
 }

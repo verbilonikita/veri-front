@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { HomePageEnum } from './Home.const';
+import { HomePageEnum } from './dto/Home.const';
 
 @Component({
   selector: 'app-Home',

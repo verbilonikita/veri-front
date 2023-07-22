@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HomeComponent } from './HomePageComponent/Home.component';
+import { HomeComponent } from './Home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { TypographyComponent } from 'src/app/components/Typography/Typography.component';
 

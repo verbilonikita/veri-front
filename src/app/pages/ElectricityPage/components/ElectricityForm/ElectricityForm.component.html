@@ -6,8 +6,8 @@
     [invalid]="inputInvalid('textkwh')"
     invalidTitle="Please type a number."
   />
+
   <app-btn
-    [loading]="this.electricityRatesService.loading"
-    [disabled]="this.electricityRatesService.loading || form.invalid"
+    [disabled]="(this.electricityRatesService.loading$ | async) || form.invalid"
   />
 </form>

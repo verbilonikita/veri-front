@@ -1,11 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  OnInit,
-} from '@angular/core';
-import { ElectricityRatesService } from '../../../ElectricityPageService/ElectricityRates.service';
-import { IPlan } from '../../../ElectricityPageDTO/ElectricityRates.types';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { IPlan } from '../../../dto/ElectricityRates.types';
 
 @Component({
   selector: 'app-planslist',
@@ -14,6 +8,5 @@ import { IPlan } from '../../../ElectricityPageDTO/ElectricityRates.types';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PlansListComponent {
-  @Input() plans?: IPlan[];
-  constructor(public electricityRatesService: ElectricityRatesService) {}
+  @Input() plans!: IPlan[];
 }

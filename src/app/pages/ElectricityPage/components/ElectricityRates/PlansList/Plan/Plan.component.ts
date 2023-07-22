@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { IPlan } from '../../../../ElectricityPageDTO/ElectricityRates.types';
+import { IPlan } from '../../../../dto/ElectricityRates.types';
 import { openClose } from 'src/app/const/animations';
 import { PlanBtnsEnum, PlanTitlesEnum } from './Plan.const';
 

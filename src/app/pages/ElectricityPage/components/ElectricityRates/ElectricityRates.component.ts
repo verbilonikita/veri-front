@@ -1,39 +1,48 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {
   ElectricityRatesEnum,
   ElectricityRatesTitlesEnum,
-} from '../../ElectricityPageDTO/ElectricityRates.const';
-import { ElectricityRatesService } from '../../ElectricityPageService/ElectricityRates.service';
+} from '../../dto/ElectricityRates.const';
+import { ElectricityRatesService } from '../../services/ElectricityPage.service';
+import { Observable, Subject, combineLatest, map, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-ElectricityRates',
   templateUrl: './ElectricityRates.component.html',
   styleUrls: ['./ElectricityRates.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ElectricityRatesComponent {
-  error?: string;
+export class ElectricityRatesComponent implements OnInit {
   formTitle = ElectricityRatesEnum.formTitle;
   listTitle: ElectricityRatesTitlesEnum | null = null;
+  title$!: Observable<ElectricityRatesTitlesEnum>;
+  private destroy$ = new Subject<void>();
 
   constructor(public electricityRatesService: ElectricityRatesService) {}
 
-  showListTitle() {
-    return !this.electricityRatesService.loading || this.error;
+  ngOnInit(): void {
+    this.getTitle();
   }
 
-  showList() {
-    return (
-      this.electricityRatesService.plans.length > 0 &&
-      !this.electricityRatesService.loading
+  private getTitle() {
+    this.title$ = combineLatest([
+      this.electricityRatesService.error$,
+      this.electricityRatesService.plans$,
+    ]).pipe(
+      map(([err, plans]) => {
+        if (err) {
+          return ElectricityRatesTitlesEnum.Error;
+        } else if (plans.length > 0) {
+          return ElectricityRatesTitlesEnum.PickedPlans;
+        }
+        return ElectricityRatesTitlesEnum.ChooseRates;
+      }),
+      takeUntil(this.destroy$)
     );
   }
 
-  getMessageType(): string {
-    if (this.error) {
-      return ElectricityRatesTitlesEnum.Error;
-    } else if (this.electricityRatesService.plans.length > 0) {
-      return ElectricityRatesTitlesEnum.PickedPlans;
-    }
-    return ElectricityRatesTitlesEnum.ChooseRates;
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

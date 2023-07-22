@@ -7,7 +7,7 @@
   <div class="list-item_bot">
     <div class="list-item_bot-info">
       <p>{{ plan?.name }}:</p>
-      <span> {{ plan?.cost }}€ </span>
+      <span> {{ plan?.cost | euro }} </span>
     </div>
 
     <button (click)="toggleIsOpen()" class="list-item_bot-btn">
