@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { links } from 'src/app/const/router.const';
-import { HeaderBtnEnum, HeaderTitlesEnum } from './Header.const';
+import { HeaderBtnEnum, HeaderTitlesEnum } from './dto/Header.const';
 
 @Component({
   selector: 'app-header',

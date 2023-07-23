@@ -2,9 +2,15 @@
 
 ## Starting Project
 
-- docker-compose up
-  OR
-- npm run start
+if you want to use docker-compose - please put it in the same root directory with front folder:
+
+- your folder
+- - verivox-api
+- - verivox-front
+
+then run "docker-compose up" from "verivox-front"
+
+otherwise, please run "npm run start"
 
 ### info
 

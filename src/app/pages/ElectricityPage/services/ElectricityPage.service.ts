@@ -1,5 +1,13 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { BehaviorSubject, Subject, delay, map, takeUntil } from 'rxjs';
+import {
+  BehaviorSubject,
+  Subject,
+  catchError,
+  delay,
+  map,
+  of,
+  takeUntil,
+} from 'rxjs';
 import {
   IElectricityRatesRespones,
   IPlan,
@@ -22,12 +30,15 @@ export class ElectricityRatesService implements OnDestroy {
       .post<IElectricityRatesRespones>(API.URL, body)
       .pipe(
         map((res) => res.data),
+        catchError((err) => {
+          this.error$.next(err.message);
+          return of([]); // Return an observable with a default value or null to continue the observable chain
+        }),
         delay(1000),
         takeUntil(this.$unsubscribe)
       )
       .subscribe({
         next: (res) => this.plans$.next(res),
-        error: (err) => this.error$.next(err.message),
         complete: () => this.loading$.next(false),
       });
   }
