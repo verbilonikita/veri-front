@@ -20,7 +20,7 @@ to do:
 - add .env file, separate .envs
 - make more common components etc.
 - more refactoring
-- tried to complete it ASAP, might have missed smth, so check for any typos etc.
+- tried to complete this task ASAP, might have missed smth, so check for typos etc. needed
 
 ### features
 
