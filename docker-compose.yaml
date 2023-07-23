@@ -3,7 +3,7 @@ name: veri-test
 services:
   api:
     build:
-      context: ../verivox-api
+      context: ../veri-api
       dockerfile: Dockerfile
     ports:
       - 3000:3000
