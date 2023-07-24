@@ -22,7 +22,7 @@ to do:
 - more refactoring
 - tried to complete this task ASAP, might have missed smth, so check for typos etc. needed
 
-### features
+### features - please note: response from API comes with 1 second delay (to simulate real response)
 
 1. used onPush change detection
 2. created several custom components (standalone)
