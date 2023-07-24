@@ -1,5 +1,4 @@
 version: "3"
-name: veri-test
 services:
   api:
     build:

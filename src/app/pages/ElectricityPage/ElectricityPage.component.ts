@@ -4,7 +4,7 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { ElectricityRatesService } from './services/ElectricityPage.service';
+import { ElectricityRatesService } from './services/ElectricityRates.service';
 
 @Component({
   selector: 'electricity-rates',

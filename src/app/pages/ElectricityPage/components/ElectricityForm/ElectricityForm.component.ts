@@ -5,7 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { ElectricityRatesService } from '../../services/ElectricityPage.service';
+import { ElectricityRatesService } from '../../services/ElectricityRates.service';
 import { ElectricityRatesEnum } from '../../dto/ElectricityRates.const';
 
 @Component({

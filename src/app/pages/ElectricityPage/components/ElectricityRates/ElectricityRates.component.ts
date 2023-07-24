@@ -8,7 +8,7 @@ import {
   ElectricityRatesEnum,
   ElectricityRatesTitlesEnum,
 } from '../../dto/ElectricityRates.const';
-import { ElectricityRatesService } from '../../services/ElectricityPage.service';
+import { ElectricityRatesService } from '../../services/ElectricityRates.service';
 import { Observable, Subject, combineLatest, map, takeUntil } from 'rxjs';
 
 @Component({

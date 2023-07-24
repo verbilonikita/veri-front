@@ -7,7 +7,7 @@ import { ElectricityPageComponent } from './ElectricityPage.component';
 import { PlansListComponent } from './components/ElectricityRates/PlansList/PlansList.component';
 import { PlanComponent } from './components/ElectricityRates/PlansList/Plan/Plan.component';
 import { DividerComponent } from 'src/app/components/Divider/Divider.component';
-import { ElectricityRatesService } from './services/ElectricityPage.service';
+import { ElectricityRatesService } from './services/ElectricityRates.service';
 import { RouterModule, Routes } from '@angular/router';
 import { TypographyComponent } from 'src/app/components/Typography/Typography.component';
 import { ElectricityFormComponent } from './components/ElectricityForm/ElectricityForm.component';
