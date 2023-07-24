@@ -14,7 +14,6 @@ import { LinkComponent } from './components/Link/Link.component';
     AppRoutingModule,
     LinkComponent,
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

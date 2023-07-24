@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import {
   ElectricityRatesEnum,
   ElectricityRatesTitlesEnum,
@@ -12,15 +17,16 @@ import { Observable, Subject, combineLatest, map, takeUntil } from 'rxjs';
   styleUrls: ['./ElectricityRates.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ElectricityRatesComponent implements OnInit {
+export class ElectricityRatesComponent implements OnInit, OnDestroy {
   formTitle = ElectricityRatesEnum.formTitle;
   listTitle: ElectricityRatesTitlesEnum | null = null;
   title$!: Observable<ElectricityRatesTitlesEnum>;
-  private destroy$ = new Subject<void>();
+  private destroy$!: Subject<void>;
 
   constructor(public electricityRatesService: ElectricityRatesService) {}
 
   ngOnInit(): void {
+    this.destroy$ = new Subject();
     this.getTitle();
   }
 

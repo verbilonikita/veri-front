@@ -1,12 +1,11 @@
-import { Injectable, OnDestroy } from '@angular/core';
+import { Injectable } from '@angular/core';
 import {
   BehaviorSubject,
-  Subject,
+  Subscription,
   catchError,
   delay,
   map,
   of,
-  takeUntil,
 } from 'rxjs';
 import {
   IElectricityRatesRespones,
@@ -16,26 +15,30 @@ import { API } from 'src/app/const/router.const';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
-export class ElectricityRatesService implements OnDestroy {
-  private $unsubscribe = new Subject<void>();
-  constructor(private http: HttpClient) {}
+export class ElectricityRatesService {
   public loading$ = new BehaviorSubject(false);
   public error$ = new BehaviorSubject('');
   public plans$ = new BehaviorSubject<IPlan[] | []>([]);
+  private subscription$?: Subscription;
+
+  constructor(private http: HttpClient) {}
+
+  init() {
+    this.plans$ = new BehaviorSubject<IPlan[] | []>([]);
+  }
 
   fetchData(kwhValue: string) {
     this.loading$.next(true);
     const body = { kwh: +kwhValue };
-    this.http
+    this.subscription$ = this.http
       .post<IElectricityRatesRespones>(API.URL, body)
       .pipe(
         map((res) => res.data),
         catchError((err) => {
           this.error$.next(err.message);
-          return of([]); // Return an observable with a default value or null to continue the observable chain
+          return of([]);
         }),
-        delay(1000),
-        takeUntil(this.$unsubscribe)
+        delay(1000)
       )
       .subscribe({
         next: (res) => this.plans$.next(res),
@@ -43,8 +46,8 @@ export class ElectricityRatesService implements OnDestroy {
       });
   }
 
-  ngOnDestroy(): void {
-    this.$unsubscribe.next();
-    this.$unsubscribe.complete();
+  destroy(): void {
+    this.subscription$?.unsubscribe();
+    this.plans$.unsubscribe();
   }
 }

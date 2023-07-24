@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
+import { ElectricityRatesService } from './services/ElectricityPage.service';
 
 @Component({
   selector: 'electricity-rates',
@@ -6,4 +12,14 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./ElectricityPage.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ElectricityPageComponent {}
+export class ElectricityPageComponent implements OnInit, OnDestroy {
+  constructor(private ers: ElectricityRatesService) {}
+
+  ngOnInit(): void {
+    this.ers.init();
+  }
+
+  ngOnDestroy(): void {
+    this.ers.destroy();
+  }
+}
