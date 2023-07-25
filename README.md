@@ -26,7 +26,7 @@ to do:
 
 #### please note: response from API comes with 1 second delay (to simulate real response)
 
-#### app is not responsive - wanted to implement a better logic rather than better design as ASAP solution
+#### app is not responsive
 
 1. used onPush change detection
 2. created several custom components (standalone)
