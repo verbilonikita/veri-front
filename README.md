@@ -22,7 +22,11 @@ to do:
 - more refactoring
 - tried to complete this task ASAP, might have missed smth, so check for typos etc. needed
 
-### features - please note: response from API comes with 1 second delay (to simulate real response)
+### features
+
+#### please note: response from API comes with 1 second delay (to simulate real response)
+
+#### app is not responsive - wanted to implement a better logic rather than better design as ASAP solution
 
 1. used onPush change detection
 2. created several custom components (standalone)
@@ -32,3 +36,4 @@ to do:
 6. lazy loading module
 7. service to handle async requests + store data (state)
 8. docker uses nginx to run bundle
+9. input allows to type only numbers (with decimals)

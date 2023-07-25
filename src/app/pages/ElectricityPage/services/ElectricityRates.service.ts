@@ -27,14 +27,19 @@ export class ElectricityRatesService {
     this.plans$ = new BehaviorSubject<IPlan[] | []>([]);
   }
 
+  private sortData(data: IPlan[]) {
+    return data.sort((a, b) => a.cost - b.cost);
+  }
+
   fetchData(kwhValue: string) {
     this.loading$.next(true);
     const body = { kwh: +kwhValue };
     this.subscription$ = this.http
       .post<IElectricityRatesRespones>(API.URL, body)
       .pipe(
-        map((res) => res.data),
+        map((res) => this.sortData(res.data)),
         catchError((err) => {
+          console.log(err);
           this.error$.next(err.message);
           return of([]);
         }),

@@ -2,7 +2,7 @@
   <app-typography [title]="formTitle" />
   <app-input
     formControlName="textkwh"
-    pattern="^[0-9]*$"
+    pattern="^[1-9][\.\d]*(,\d+)?$"
     [invalid]="inputInvalid('textkwh')"
     invalidTitle="Please type a number."
   />

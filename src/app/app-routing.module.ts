@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageModule } from './pages/HomePage/HomePage.module';
+import { ErrorComponent } from './pages/Error/Error.component';
+import { TypographyComponent } from './components/Typography/Typography.component';
 
 const routes: Routes = [
   {
@@ -16,12 +18,13 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '/calculator',
+    component: ErrorComponent,
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  declarations: [ErrorComponent],
+  imports: [TypographyComponent, RouterModule.forRoot(routes)],
   providers: [],
   exports: [RouterModule],
 })
