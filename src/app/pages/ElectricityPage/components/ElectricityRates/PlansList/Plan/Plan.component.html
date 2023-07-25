@@ -10,9 +10,9 @@
       <span> {{ plan?.cost | euro }} </span>
     </div>
 
-    <button (click)="toggleIsOpen()" class="list-item_bot-btn">
+    <app-btn type="button" (click)="toggleIsOpen()" title="Purchase">
       {{ btnTitles.btnTitle }}
-    </button>
+    </app-btn>
   </div>
 
   <div [@openClose]="isOpen ? 'open' : 'closed'">

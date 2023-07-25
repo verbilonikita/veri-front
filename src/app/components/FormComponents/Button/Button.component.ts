@@ -8,4 +8,6 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 })
 export class ButtonComponent {
   @Input() disabled: boolean = false;
+  @Input() type: string = 'submit';
+  @Input() title: string = 'Submit';
 }

@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ElectricityRatesService } from '../../services/ElectricityRates.service';
-import { ElectricityRatesEnum } from '../../dto/ElectricityRates.const';
+import { ElectricityRatesEnum } from '../ElectricityRates/dto/ElectricityRates.const';
 
 @Component({
   selector: 'app-ElectricityForm',

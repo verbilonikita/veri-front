@@ -10,7 +10,7 @@ import {
 import {
   IElectricityRatesRespones,
   IPlan,
-} from '../dto/ElectricityRates.types';
+} from '../components/ElectricityRates/dto/ElectricityRates.types';
 import { API } from 'src/app/const/router.const';
 import { HttpClient } from '@angular/common/http';
 
@@ -39,7 +39,6 @@ export class ElectricityRatesService {
       .pipe(
         map((res) => this.sortData(res.data)),
         catchError((err) => {
-          console.log(err);
           this.error$.next(err.message);
           return of([]);
         }),
